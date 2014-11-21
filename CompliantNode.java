@@ -18,8 +18,8 @@ public class CompliantNode implements Node {
         HashMap<Integer, ArrayList<Integer>> byNode = new HashMap<Integer, ArrayList<Integer>>();
 
         for (Integer[] c : candidates) {
-            int nodeId = c[0];
-            int txId = c[1];
+            int nodeId = c[1];
+            int txId = c[0];
 
             if (!byNode.containsKey(nodeId)) {
                 byNode.put(nodeId, new ArrayList<Integer>());
