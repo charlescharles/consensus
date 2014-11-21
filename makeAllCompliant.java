@@ -36,13 +36,13 @@ public class CompliantNode implements Node {
             int node = e.getKey();
             ArrayList<Integer> txs = e.getValue();
 
-//            if (!isCompliant(txs)) {
-//                this.trust.put(node, false);
-//           }
+	    //            if (!isCompliant(txs)) {
+	    //                this.trust.put(node, false);
+	    //           }
 
-//            if (this.trust.get(node)) {
-                acceptedTxs.addAll(txs);
-//            }
+	    //            if (this.trust.get(node)) {
+	    acceptedTxs.addAll(txs);
+	    //            }
         }
         //System.out.println(this.round);
         this.acceptedTxs = acceptedTxs;
@@ -105,12 +105,12 @@ public class CompliantNode implements Node {
         Set<Transaction> txs = new HashSet<Transaction>();
 
         switch (this.round) {
-            case 0: txs.addAll(this.getOddTxs());
-                    break;
-            case 1: txs.addAll(this.getEvenTxs());
-                    break;
-            default: txs.addAll(this.getAllTxs());
-                    break;
+	case 0: txs.addAll(this.getOddTxs());
+	    break;
+	case 1: txs.addAll(this.getEvenTxs());
+	    break;
+	default: txs.addAll(this.getAllTxs());
+	    break;
         }
 
         return txs;

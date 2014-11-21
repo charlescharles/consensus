@@ -15,13 +15,11 @@ public class CompliantNode implements Node {
     }
 
     public void receiveCandidates(ArrayList<Integer[]> candidates) {
-        
-        /* Mapping between nodeID and transaction lists */
         HashMap<Integer, ArrayList<Integer>> byNode = new HashMap<Integer, ArrayList<Integer>>();
 
         for (Integer[] c : candidates) {
-            int txId = c[0];
-            int nodeId = c[1];
+            int nodeId = c[0];
+            int txId = c[1];
 
             if (!byNode.containsKey(nodeId)) {
                 byNode.put(nodeId, new ArrayList<Integer>());
@@ -36,20 +34,15 @@ public class CompliantNode implements Node {
             int node = e.getKey();
             ArrayList<Integer> txs = e.getValue();
 
-//            if (!isCompliant(txs)) {
-//                this.trust.put(node, false);
-//           }
+            if (!isCompliant(txs)) {
+                this.trust.put(node, false);
+            }
 
-//            if (this.trust.get(node)) {
+            if (this.trust.get(node)) {
                 acceptedTxs.addAll(txs);
-//            }
+            }
         }
-        //System.out.println(this.round);
         this.acceptedTxs = acceptedTxs;
-
-        //for(Integer i : acceptedTxs)
-        //    System.out.print(i + ", ");
-        //System.out.println();
         this.round += 1;
     }
 
