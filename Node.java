@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public interface Node {
-   
+
    // NOTE: Node is an interface and does not have a constructor.
    // However, your CompliantNode.java class requires a 4 argument
    // constructor as defined in Simulation.java
 
 	// followers[i] is True iff this node followers node i
-	void setFollowers(boolean[] followers); 
+	void setFollowees(boolean[] followers);
 
 	//initialize proposal list of transactions
 	void setPendingTransaction(Set<Transaction> pendingTransactions);

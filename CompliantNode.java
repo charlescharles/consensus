@@ -3,7 +3,7 @@ import java.util.*;
 public class CompliantNode implements Node {
     private double pGraph, pMalicious, pTxDistribution;
     private int numRounds, round;
-    private ArrayList<Integer> followers, acceptedTxs;
+    private ArrayList<Integer> followees, acceptedTxs;
     private HashMap<Integer, Boolean> trust;
 
     public CompliantNode(double p_graph, double p_malicious, double p_txDistribution, int numRounds) {
@@ -113,18 +113,18 @@ public class CompliantNode implements Node {
         return this.getCompliantTxs();
     }
 
-    public void setFollowers(boolean[] followers) {
+    public void setFollowees(boolean[] followees) {
         ArrayList<Integer> follow = new ArrayList<Integer>();
         HashMap<Integer, Boolean> trust = new HashMap<Integer, Boolean>();
 
-        for (int i = 0; i < followers.length; i++) {
-            if (followers[i]) {
+        for (int i = 0; i < followees.length; i++) {
+            if (followees[i]) {
                 follow.add(i);
                 trust.put(i, true);
             }
         }
 
-        this.followers = follow;
+        this.followees = follow;
         this.trust = trust;
     }
 
